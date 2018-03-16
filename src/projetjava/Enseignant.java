@@ -30,14 +30,22 @@ public class Enseignant {
     private String Prenom;
 
 
+    /**
+     * 
+     */
+    public Classes Titulaire;
 
+    /**
+     * 
+     */
+    public Classes Remplacant;
 
     /**
      * @return
      */
     public String getId_prof() {
         // TODO implement here
-        return null;
+        return "";
     }
 
     /**

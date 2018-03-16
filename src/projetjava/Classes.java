@@ -29,17 +29,6 @@ public class Classes {
      */
     private String Orientation;
 
-
-    /**
-     * 
-     */
-    public Enseignant Titulaire;
-
-    /**
-     * 
-     */
-    public Set<Enseignant> Remplaçant;
-
     /**
      * @return
      */

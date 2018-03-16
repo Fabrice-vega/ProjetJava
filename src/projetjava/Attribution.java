@@ -25,6 +25,15 @@ public class Attribution {
     private String Sigle;
 
 
+    /**
+     * 
+     */
+    private Classes Classes;
+
+    /**
+     * 
+     */
+    private Enseignant Enseignant;
 
     /**
      * @return
