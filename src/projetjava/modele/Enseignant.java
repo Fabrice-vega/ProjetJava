@@ -7,82 +7,57 @@ import java.util.*;
  * @author fabrice.vega
  */
 public class Enseignant {
-
-    /**
-     * Default constructor
-     */
-    public Enseignant() {
+    
+    private String id_prof = "";
+    private String nom = "";
+    private String prenom = "";
+    private Classes titulaire = null;
+    private Classes remplacant = null;
+       
+    public Enseignant( String id_prof, String nom, String prenom ) {
+        this.id_prof = id_prof;
+        this.nom = nom;
+        this.prenom = prenom;
     }
-
-    /**
-     * 
-     */
-    private String id_prof;
-
-    /**
-     * 
-     */
-    private String nom;
-
-    /**
-     * 
-     */
-    private String prenom;
-
-
-    /**
-     * 
-     */
-    public Classes Titulaire;
-
-    /**
-     * 
-     */
-    public Classes Remplacant;
-
-    /**
-     * @return
-     */
+    
     public String getId_prof() {
-        // TODO implement here
-        return "";
+        return id_prof;
+    }
+    
+    public void setId_prof(String id) {
+        this.id_prof = id;
     }
 
-    /**
-     * @param value
-     */
-    public void setId_prof(String value) {
-        // TODO implement here
-    }
-
-    /**
-     * @return
-     */
     public String getNom() {
-        // TODO implement here
-        return "";
+        return nom;
     }
 
-    /**
-     * @param value
-     */
-    public void setNom(String value) {
-        // TODO implement here
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    /**
-     * @return
-     */
     public String getPrenom() {
-        // TODO implement here
-        return "";
+        return prenom;
     }
 
-    /**
-     * @param value
-     */
-    public void setPrenom(String value) {
-        // TODO implement here
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+    
+     public Classes getTitulaire() {
+        return titulaire;
+    }
+
+    public void setTitulaire(Classes titulaire) {
+        this.titulaire = titulaire;
+    }
+
+    public Classes getRemplacant() {
+        return remplacant;
+    }
+
+    public void setRemplacant(Classes remplacant) {
+        this.remplacant = remplacant;
     }
 
 }

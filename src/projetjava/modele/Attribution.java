@@ -7,62 +7,27 @@ import java.util.*;
  * @author fabrice.vega
  */
 public class Attribution {
-
-    /**
-     * Default constructor
-     */
+    
+    protected Classes classes = null;
+    protected Enseignant enseignant = null;
+    
     public Attribution() {
     }
 
-    /**
-     * 
-     */
-    private String id_prof;
-
-    /**
-     * 
-     */
-    private String sigle;
-
-
-    /**
-     * 
-     */
-    private Classes Classes;
-
-    /**
-     * 
-     */
-    private Enseignant Enseignant;
-
-    /**
-     * @return
-     */
-    public String getId_prof() {
-        // TODO implement here
-        return "";
+    public Classes getClasses() {
+        return classes;
     }
-
-    /**
-     * @param value
-     */
-    public void setId_prof(String value) {
-        // TODO implement here
+    
+    public void setClasses(Classes classes) {
+        this.classes = classes;
     }
-
-    /**
-     * @return
-     */
-    public String getSigle() {
-        // TODO implement here
-        return "";
+    
+    public Enseignant getEnseignant() {
+        return enseignant;
     }
-
-    /**
-     * @param value
-     */
-    public void setSigle(String value) {
-        // TODO implement here
+    
+    public void setEnseignant(Enseignant enseignant) {
+        this.enseignant = enseignant;
     }
 
 }

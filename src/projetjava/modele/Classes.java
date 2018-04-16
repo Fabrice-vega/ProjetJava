@@ -8,70 +8,38 @@ import java.util.*;
  */
 public class Classes {
 
-    /**
-     * Default constructor
-     */
-    public Classes() {
+    private String sigle = "";
+    private String orientation = "";
+    private int annee = 0;
+    
+    public Classes( String sigle, String orientation, int annee ) {
+        this.sigle = sigle;
+        this.orientation = orientation;
+        this.annee = annee;
     }
 
-    /**
-     * 
-     */
-    private String sigle;
-
-    /**
-     * 
-     */
-    private int annee;
-
-    /**
-     * 
-     */
-    private String orientation;
-
-    /**
-     * @return
-     */
     public String getSigle() {
-        // TODO implement here
-        return "";
+        return sigle;
     }
 
-    /**
-     * @param value
-     */
-    public void setSigle(String value) {
-        // TODO implement here
+    public void setSigle(String sigle) {
+        this.sigle = sigle;
     }
 
-    /**
-     * @return
-     */
     public int getAnnee() {
-        // TODO implement here
-        return 0;
+        return annee;
+    }
+    
+    public void setAnnee(int annee) {
+        this.annee = annee;
     }
 
-    /**
-     * @param value
-     */
-    public void setAnnee(int value) {
-        // TODO implement here
-    }
-
-    /**
-     * @return
-     */
     public String getOrientation() {
-        // TODO implement here
-        return "";
+        return orientation;
     }
 
-    /**
-     * @param value
-     */
-    public void setOrientation(String value) {
-        // TODO implement here
+    public void setOrientation(String orientation) {
+        this.orientation = orientation;
     }
 
 }
