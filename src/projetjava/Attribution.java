@@ -17,12 +17,12 @@ public class Attribution {
     /**
      * 
      */
-    private String Id_prof;
+    private String id_prof;
 
     /**
      * 
      */
-    private String Sigle;
+    private String sigle;
 
 
     /**

@@ -17,17 +17,17 @@ public class Classes {
     /**
      * 
      */
-    private String Sigle;
+    private String sigle;
 
     /**
      * 
      */
-    private int Annee;
+    private int annee;
 
     /**
      * 
      */
-    private String Orientation;
+    private String orientation;
 
     /**
      * @return

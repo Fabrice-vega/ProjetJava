@@ -17,17 +17,17 @@ public class Enseignant {
     /**
      * 
      */
-    private String Id_prof;
+    private String id_prof;
 
     /**
      * 
      */
-    private String Nom;
+    private String nom;
 
     /**
      * 
      */
-    private String Prenom;
+    private String prenom;
 
 
     /**
