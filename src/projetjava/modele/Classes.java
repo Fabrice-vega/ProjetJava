@@ -1,4 +1,4 @@
-package projetjava;
+package projetjava.modele;
 
 
 import java.util.*;
@@ -6,44 +6,33 @@ import java.util.*;
 /**
  * @author fabrice.vega
  */
-public class Enseignant {
+public class Classes {
 
     /**
      * Default constructor
      */
-    public Enseignant() {
+    public Classes() {
     }
 
     /**
      * 
      */
-    private String id_prof;
+    private String sigle;
 
     /**
      * 
      */
-    private String nom;
+    private int annee;
 
     /**
      * 
      */
-    private String prenom;
-
-
-    /**
-     * 
-     */
-    public Classes Titulaire;
-
-    /**
-     * 
-     */
-    public Classes Remplacant;
+    private String orientation;
 
     /**
      * @return
      */
-    public String getId_prof() {
+    public String getSigle() {
         // TODO implement here
         return "";
     }
@@ -51,14 +40,29 @@ public class Enseignant {
     /**
      * @param value
      */
-    public void setId_prof(String value) {
+    public void setSigle(String value) {
         // TODO implement here
     }
 
     /**
      * @return
      */
-    public String getNom() {
+    public int getAnnee() {
+        // TODO implement here
+        return 0;
+    }
+
+    /**
+     * @param value
+     */
+    public void setAnnee(int value) {
+        // TODO implement here
+    }
+
+    /**
+     * @return
+     */
+    public String getOrientation() {
         // TODO implement here
         return "";
     }
@@ -66,22 +70,7 @@ public class Enseignant {
     /**
      * @param value
      */
-    public void setNom(String value) {
-        // TODO implement here
-    }
-
-    /**
-     * @return
-     */
-    public String getPrenom() {
-        // TODO implement here
-        return "";
-    }
-
-    /**
-     * @param value
-     */
-    public void setPrenom(String value) {
+    public void setOrientation(String value) {
         // TODO implement here
     }
 
