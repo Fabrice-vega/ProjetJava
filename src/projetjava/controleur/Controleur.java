@@ -47,11 +47,18 @@ public class Controleur {
                     //attribution();
                     break;
                 case 4:
+                    listeEnseignants();
+                    break;
+                case 5:
+                    listeClasses();
+                    break;
+                case 6:
                     v.affMsg("à la prochaine !");
+                    break;
                 default:
                     v.affMsg("choix incorrect");
             }
-        }while(choix != 4);
+        }while(choix != 6);
     }
     
     public void ajoutEnseignant() {
@@ -64,6 +71,14 @@ public class Controleur {
         Classes c = v.encodeClasses();
         String msg = m.ajoutClasses(c);
         v.affMsg(msg);
+    }
+    
+    public void listeEnseignants() {
+        
+    }
+    
+    public void listeClasses() {
+        
     }
     
     

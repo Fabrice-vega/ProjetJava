@@ -27,6 +27,8 @@ public class Vue {
                 "Ajouter un enseignant",
                 "Ajouter une classe",
                 "Attribution",
+                "Liste enseignants",
+                "Liste Classes",
                 "Fin"
         ));
         affListe(listeItems);
@@ -80,6 +82,4 @@ public class Vue {
         Classes c = new Classes(sigle, orientation, annee);
         return c;
     }
-   
-    
 }

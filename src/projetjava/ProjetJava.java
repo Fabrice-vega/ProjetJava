@@ -5,10 +5,29 @@
  */
 package projetjava;
 
+import projetjava.vue.Vue;
+import projetjava.controleur.Controleur;
+import projetjava.modele.Modele;
 /**
  *
  * @author Fabrice
  */
 public class ProjetJava {
     
+    private Vue vue;
+    private Controleur controleur;
+    private Modele modele;
+    
+    public ProjetJava() {
+        
+        vue = new Vue();
+        modele = new Modele();
+        controleur = new Controleur(modele, vue);
+        controleur.gestion();
+    }
+    
+    public static void main(String[] args) {
+        
+        ProjetJava projetjava = new ProjetJava();
+    }
 }
