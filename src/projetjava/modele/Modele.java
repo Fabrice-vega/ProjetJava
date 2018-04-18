@@ -10,6 +10,7 @@ import projetjava.Log;
 import projetjava.modele.Enseignant;
 import projetjava.modele.Classes;
 
+
 /**
  *
  * @author Fabrice
@@ -37,7 +38,7 @@ public class Modele {
     }
     
     public String ajoutClasses(Classes c) {
-        if(c == null) return "Classes null";
+        /*if(c == null) return "Classes null";
         if(mesClasses.contains(c)) {
             Log lg = Log.getInstance();
             lg.ajouter("refus de l'ajout de "+c);
@@ -46,7 +47,21 @@ public class Modele {
         mesClasses.add(c);
         Log lg = Log.getInstance();
         lg.ajouter("Classes "+c+" enregistrée");
-        return "Ajout classe effectué";
+        return "Ajout classe effectué";*/
+        if(c == null) return "Classe nul";
+        if(mesClasses.contains(c)) return "classe déjà enregistrée";
+        mesClasses.add(c);
+        return "ajout classe effectuée";
+    }
+    
+    public List<Enseignant> tousEnseignant() {
+        mesEnseignants.sort(new CompareEnseignant());
+        return mesEnseignants;
+    }
+    
+    public List<Classes> toutesClasses() {
+        mesClasses.sort(new CompareClasses());
+        return mesClasses;
     }
     
 }

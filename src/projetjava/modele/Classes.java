@@ -41,5 +41,10 @@ public class Classes {
     public void setOrientation(String orientation) {
         this.orientation = orientation;
     }
+    
+    @Override
+    public String toString() {
+        return "\tSigle = "+sigle+"\n\tAnnée  = "+annee+"\n\tOrientation = "+orientation+"\n";
+    }
 
 }

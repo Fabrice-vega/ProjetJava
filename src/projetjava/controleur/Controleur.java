@@ -74,11 +74,13 @@ public class Controleur {
     }
     
     public void listeEnseignants() {
-        
+        List<Enseignant> le = m.tousEnseignant();
+        v.affListe(le);
     }
     
     public void listeClasses() {
-        
+        List<Classes> lc = m.toutesClasses();
+        v.affListe(lc);
     }
     
     

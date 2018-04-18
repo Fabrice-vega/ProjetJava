@@ -60,4 +60,9 @@ public class Enseignant {
         this.remplacant = remplacant;
     }
 
+    @Override
+    public String toString() {
+        return "\tId du professeur ="+id_prof+"\n\tNom ="+nom+"\n\tPrenom ="+prenom+"\n";
+    }
+
 }
