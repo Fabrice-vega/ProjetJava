@@ -55,10 +55,10 @@ public class Controleur {
                    modifClasse();
                     break;
                 case 8:
-                    //supprEnseignant();
+                    supprEnseignant();
                     break;
                 case 9:
-                    //supprClasse();
+                    supprClasse();
                     break;
                 case 10:
                     listeEnseignants();
@@ -144,7 +144,7 @@ public class Controleur {
     }
     
     public Classes rechClasse() {
-        Classes sigle = v.formRechClasse();
+        String sigle = v.formRechClasse();
         return m.getClasse(sigle);
     }
     
@@ -187,5 +187,38 @@ public class Controleur {
                     v.affMsg("Choix invalide");
                     return;
             }
+    }
+    
+    public void supprClasse() {
+        Classes classeRech = rechClasse();
+        if(classeRech == null) {
+            v.affMsg("Classe introuvable");
+            return;
+        }
+        v.affClasse(classeRech);
+        String supp = v.getMsg("Supprimer ? OUI / NON \t");
+        if(supp.equals("OUI")) {
+            String msg = m.supprClasse(classeRech);
+            v.affMsg(msg);
+        } else {
+            v.affMsg("Suppression annulée.");
+        }
+    }
+    
+    public void supprEnseignant() {
+        Enseignant ensRech = rechEnseignant();
+        if(ensRech == null) {
+            v.affMsg("Enseignant introuvable");
+            return;
+        }
+        v.affEnseignant(ensRech);
+        String supp = v.getMsg("Supprimer ? OUI / NON \t");
+        if(supp.equals("OUI")) {
+            String msg = m.supprEnseignant(ensRech);
+            v.affMsg(msg);
+        } else {
+            v.affMsg("Suppression annulée");
+        }
+        
     }
 }

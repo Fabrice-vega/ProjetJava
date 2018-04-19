@@ -101,10 +101,10 @@ public class Vue {
         affMsg("Prénom = "+e.getPrenom());
     }
     
-    public Classes formRechClasse() {
+    public String formRechClasse() {
         String sigle = getMsg("sigle : ");
         System.out.println(sigle);
-        return new Classes(sigle);
+        return sigle;
     }
     
     public void affClasse(Classes c) {
