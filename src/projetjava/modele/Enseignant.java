@@ -13,6 +13,14 @@ public class Enseignant {
     private String prenom = "";
     private Classes titulaire = null;
     private Classes remplacant = null;
+    
+    public Enseignant() {   // constructeur par défaut
+        
+    }
+    
+    public Enseignant( String id_prof ) {   // constructeur de recherche
+        this.id_prof = id_prof;
+    }
        
     public Enseignant( String id_prof, String nom, String prenom ) {
         this.id_prof = id_prof;

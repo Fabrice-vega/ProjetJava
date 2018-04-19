@@ -12,6 +12,14 @@ public class Classes {
     private String orientation = "";
     private int annee = 0;
     
+    public Classes() {  // constructeur par défaut
+        
+    }
+    
+    public Classes( String sigle ) { //constructeur de recherche
+        this.sigle = sigle;
+    }
+    
     public Classes( String sigle, String orientation, int annee ) {
         this.sigle = sigle;
         this.orientation = orientation;

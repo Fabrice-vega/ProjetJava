@@ -27,6 +27,12 @@ public class Vue {
                 "Ajouter un enseignant",
                 "Ajouter une classe",
                 "Attribution",
+                "Rechercher un enseignant",
+                "Rechercher une classe",
+                "Modifier un enseignant",
+                "Modifier une classe",
+                "Supprimer un enseignant",
+                "Supprimer une classe",
                 "Liste enseignants",
                 "Liste Classes",
                 "Fin"
@@ -81,5 +87,17 @@ public class Vue {
         int annee = Integer.parseInt(an);
         Classes c = new Classes(sigle, orientation, annee);
         return c;
+    }
+    
+    public String formRechEns() {
+        String id_prof = getMsg("Id : ");
+        System.out.println(id_prof);
+        return id_prof;
+    }
+    
+    public void affEnseignant(Enseignant e) {
+        affMsg("Id = "+e.getId_prof());
+        affMsg("Nom = "+e.getNom());
+        affMsg("Prénom = "+e.getPrenom());
     }
 }

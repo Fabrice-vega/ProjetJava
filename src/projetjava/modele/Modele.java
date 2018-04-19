@@ -20,34 +20,24 @@ public class Modele {
     protected List<Enseignant> mesEnseignants = new ArrayList<>();
     protected List<Classes> mesClasses = new ArrayList<>();
     
+    //private static Modele instance = null;
     public Modele() {
         
     }
     
+    /*public static Modele getInstance() {
+        if(instance == null) return instance = new Modele();
+        else return instance;
+    }*/
+    
     public String ajoutEnseignant(Enseignant e) {
-        if(e == null) return "Enseignant null";
-        if(mesEnseignants.contains(e)) {
-            Log lg = Log.getInstance();
-            lg.ajouter("refus de l'ajout de "+e);
-            return "Enseignant déjà enregistré";
-        }
+        if(e == null) return "enseignant nul";
+        if(mesEnseignants.contains(e)) return "enseignant déjà enregistré";
         mesEnseignants.add(e);
-        Log lg = Log.getInstance();
-        lg.ajouter("Enseignant "+e+" enregistré");
-        return "ajout enseignant effectué";
+        return "ajout enseignant effectuée";
     }
     
     public String ajoutClasses(Classes c) {
-        /*if(c == null) return "Classes null";
-        if(mesClasses.contains(c)) {
-            Log lg = Log.getInstance();
-            lg.ajouter("refus de l'ajout de "+c);
-            return "Classe déjà enregistrée";
-        }
-        mesClasses.add(c);
-        Log lg = Log.getInstance();
-        lg.ajouter("Classes "+c+" enregistrée");
-        return "Ajout classe effectué";*/
         if(c == null) return "Classe nul";
         if(mesClasses.contains(c)) return "classe déjà enregistrée";
         mesClasses.add(c);
@@ -64,4 +54,32 @@ public class Modele {
         return mesClasses;
     }
     
+    public Enseignant getEnseignant(String idRech) {
+        Enseignant eRech = new Enseignant(idRech);
+        int i = mesEnseignants.indexOf(eRech);
+        if(i<0) return null;
+        else return mesEnseignants.get(i);
+    }
+    
+    public Classes getClasse(String sigleRech) {
+        Classes cRech = new Classes(sigleRech);
+        int i = mesClasses.indexOf(cRech);
+        if(i < 0) return null;
+        else return mesClasses.get(i);
+    }
+    
+    public String modifNom(Enseignant e, String nom) {
+        e.setNom(nom);
+        return "Changement de nom effectué";
+    }
+    
+    public String modifPrenom(Enseignant e, String prenom) {
+        e.setPrenom(prenom);
+        return "Changement de prénom effectué";
+    }
+    
+    public String modifIdProf(Enseignant e, String id_prof) {
+        e.setId_prof(id_prof);
+        return "Changement de d'id effectué";
+    }
 }

@@ -21,7 +21,7 @@ public class ProjetJava {
     public ProjetJava() {
         
         vue = new Vue();
-        modele = new Modele();
+        modele = new Modele();/*.getInstance();*/
         controleur = new Controleur(modele, vue);
         controleur.gestion();
     }
