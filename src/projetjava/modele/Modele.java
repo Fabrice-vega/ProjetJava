@@ -54,16 +54,14 @@ public class Modele {
         return mesClasses;
     }
     
-    public Enseignant getEnseignant(String idRech) {
-        Enseignant eRech = new Enseignant(idRech);
-        int i = mesEnseignants.indexOf(eRech);
+    public Enseignant getEnseignant(Enseignant idRech) {
+        int i = mesEnseignants.indexOf(idRech);
         if(i<0) return null;
         else return mesEnseignants.get(i);
     }
     
-    public Classes getClasse(String sigleRech) {
-        Classes cRech = new Classes(sigleRech);
-        int i = mesClasses.indexOf(cRech);
+    public Classes getClasse(Classes sigleRech) {
+        int i = mesClasses.indexOf(sigleRech);
         if(i < 0) return null;
         else return mesClasses.get(i);
     }
@@ -81,5 +79,20 @@ public class Modele {
     public String modifIdProf(Enseignant e, String id_prof) {
         e.setId_prof(id_prof);
         return "Changement de d'id effectué";
+    }
+    
+    public String modifSigle(Classes c, String sigle) {
+        c.setSigle(sigle);
+        return "Changement du sigle effectué";
+    }
+    
+    public String modifOrientation(Classes c, String orientation) {
+        c.setOrientation(orientation);
+        return "Changement de l'orientation effectué";
+    }
+    
+    public String modifAnnee(Classes c, int annee) {
+        c.setAnnee(annee);
+        return "Changement de l'année effectuée";
     }
 }

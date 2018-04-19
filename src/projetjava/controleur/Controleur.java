@@ -46,19 +46,19 @@ public class Controleur {
                     affRechEnseignant();
                     break;
                 case 5:
-                    //affRechClasses();
+                    affRechClasse();
                     break;
                 case 6:
                     modifEnseignant();
                     break;
                 case 7:
-                   //modifClasses();
+                   modifClasse();
                     break;
                 case 8:
                     //supprEnseignant();
                     break;
                 case 9:
-                    //supprClasses();
+                    //supprClasse();
                     break;
                 case 10:
                     listeEnseignants();
@@ -98,9 +98,8 @@ public class Controleur {
     }
     
     public Enseignant rechEnseignant() {
-        //String id_prof = v.formRechEns();
-        System.out.println(m.getEnseignant(v.formRechEns()));
-        return m.getEnseignant(v.formRechEns());
+        Enseignant id_prof = v.formRechEns();
+        return m.getEnseignant(id_prof);
     }
     
     public void affRechEnseignant() {
@@ -142,5 +141,51 @@ public class Controleur {
                     v.affMsg("Choix invalide");
                     return;
             }
-    }  
+    }
+    
+    public Classes rechClasse() {
+        Classes sigle = v.formRechClasse();
+        return m.getClasse(sigle);
+    }
+    
+    public void affRechClasse() {
+        Classes oRech = rechClasse();
+        
+        if(oRech != null) {
+            v.affMsg("La classe trouvée est : ");
+            v.affClasse(oRech);
+        } else {
+            v.affMsg("Classe introuvable");
+            return;
+        }
+    }
+    
+    public void modifClasse() {
+        Classes classeRech = rechClasse();
+        if(classeRech == null) {
+            v.affMsg("Classe introuvable");
+            return;
+        }
+        v.affClasse(classeRech);
+        
+        int ch = 0;
+        System.out.println("1.sigle\t2.orientation\t3.année :\n");
+            switch (ch) {
+                case 1:
+                    String nvSigle = v.getMsg("Nouveau sigle : ");
+                    m.modifSigle(classeRech, nvSigle);
+                    break;
+                case 2:
+                    String nvOrientation = v.getMsg("Nouvel orientation : ");
+                    m.modifOrientation(classeRech, nvOrientation);
+                    break;
+                case 3:
+                    int nvAnnee = Integer.parseInt(v.getMsg("Nouvelle année : "));
+                    m.modifAnnee(classeRech, nvAnnee);
+                    break;
+                default:
+                    v.affMsg("Choix invalide");
+                    return;
+            }
+    }
 }

@@ -89,15 +89,27 @@ public class Vue {
         return c;
     }
     
-    public String formRechEns() {
+    public Enseignant formRechEns() {
         String id_prof = getMsg("Id : ");
         System.out.println(id_prof);
-        return id_prof;
+        return new Enseignant(id_prof);
     }
     
     public void affEnseignant(Enseignant e) {
         affMsg("Id = "+e.getId_prof());
         affMsg("Nom = "+e.getNom());
         affMsg("Prénom = "+e.getPrenom());
+    }
+    
+    public Classes formRechClasse() {
+        String sigle = getMsg("sigle : ");
+        System.out.println(sigle);
+        return new Classes(sigle);
+    }
+    
+    public void affClasse(Classes c) {
+        affMsg("Sigle = "+c.getSigle());
+        affMsg("Orientation = "+c.getOrientation());
+        affMsg("Année = "+c.getAnnee());
     }
 }
