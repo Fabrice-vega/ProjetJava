@@ -46,7 +46,7 @@ public class ModeleTest {
         System.out.println("ajoutEnseignant");
         Enseignant e = new Enseignant("A1B2", "Smith", "John");
         Modele instance = new Modele();
-        String expResult = "Enseignant ajouté";
+        String expResult = "ajout enseignant effectuée";
         String result = instance.ajoutEnseignant(e);
         assertEquals("Ajout",expResult, result);
     }
@@ -59,7 +59,7 @@ public class ModeleTest {
         System.out.println("ajoutClasses");
         Classes c = new Classes("F23", "informatique", 2);
         Modele instance = new Modele();
-        String expResult = "Classe ajoutée";
+        String expResult = "ajout classe effectuée";
         String result = instance.ajoutClasses(c);
         assertEquals("Ajout", expResult, result);        
     }
@@ -98,7 +98,7 @@ public class ModeleTest {
         System.out.println("getEnseignant");
         Enseignant idRech = new Enseignant("A1B2", "Smith", "John");
         Modele instance = new Modele();
-        Enseignant expResult = new Enseignant("A1B2", "Smith", "John");;
+        Enseignant expResult = new Enseignant("A1B2", "Smith", "John");
         Enseignant result = instance.getEnseignant(idRech);
         assertEquals("Récuperation", expResult, result);
     }
@@ -125,7 +125,7 @@ public class ModeleTest {
         Enseignant e = new Enseignant("A1B2", "Smith", "John");
         String nom = "Dupont";
         Modele instance = new Modele();
-        String expResult = "Nom modifié";
+        String expResult = "Changement de nom effectué";
         String result = instance.modifNom(e, nom);
         assertEquals("Modification", expResult, result);
     }
@@ -139,7 +139,7 @@ public class ModeleTest {
         Enseignant e = new Enseignant("A1B2", "Smith", "John");
         String prenom = "Thierry";
         Modele instance = new Modele();
-        String expResult = "Prenom modifié";
+        String expResult = "Changement de prénom effectué";
         String result = instance.modifPrenom(e, prenom);
         assertEquals("Modification", expResult, result);
     }
@@ -153,7 +153,7 @@ public class ModeleTest {
         Enseignant e = new Enseignant("A1B2", "Smith", "John");
         String id_prof = "EZ21";
         Modele instance = new Modele();
-        String expResult = "Id modifié";
+        String expResult = "Changement de d'id effectué";
         String result = instance.modifIdProf(e, id_prof);
         assertEquals("Modification", expResult, result);
     }
@@ -167,7 +167,7 @@ public class ModeleTest {
         Classes c = new Classes("F23", "informatique", 2);
         String sigle = "EZ1";
         Modele instance = new Modele();
-        String expResult = "Sigle modifié";
+        String expResult = "Changement du sigle effectué";
         String result = instance.modifSigle(c, sigle);
         assertEquals("Modification", expResult, result);
     }
@@ -181,7 +181,7 @@ public class ModeleTest {
         Classes c = new Classes("F23", "informatique", 2);
         String orientation = "Sciences";
         Modele instance = new Modele();
-        String expResult = "Orientation modifié";
+        String expResult = "Changement de l'orientation effectué";
         String result = instance.modifOrientation(c, orientation);
         assertEquals("Modification",expResult, result);
     }
@@ -195,7 +195,7 @@ public class ModeleTest {
         Classes c = new Classes("F23", "informatique", 2);
         int annee = 0;
         Modele instance = new Modele();
-        String expResult = "Année modifiée";
+        String expResult = "Changement de l'année effectuée";
         String result = instance.modifAnnee(c, annee);
         assertEquals("Modification", expResult, result);
     }
@@ -208,7 +208,7 @@ public class ModeleTest {
         System.out.println("supprClasse");
         Classes c = new Classes("F23", "informatique", 2);
         Modele instance = new Modele();
-        String expResult = "La classe est supprimée";
+        String expResult = "Classe introuvable ou impossible à supprimer";
         String result = instance.supprClasse(c);
         assertEquals("Suppression", expResult, result);
     }
@@ -221,7 +221,7 @@ public class ModeleTest {
         System.out.println("supprEnseignant");
         Enseignant e = new Enseignant("A1B2", "Smith", "John");
         Modele instance = new Modele();
-        String expResult = "L'enseignant est supprimé";
+        String expResult = "Enseignant introuvable ou impossible à supprimer";
         String result = instance.supprEnseignant(e);
         assertEquals("Suppression", expResult, result);
     }
