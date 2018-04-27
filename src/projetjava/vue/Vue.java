@@ -95,21 +95,48 @@ public class Vue {
         return new Enseignant(id_prof);
     }
     
-    public void affEnseignant(Enseignant e) {
-        affMsg("Id = "+e.getId_prof());
-        affMsg("Nom = "+e.getNom());
-        affMsg("Prénom = "+e.getPrenom());
-    }
     
-    public String formRechClasse() {
+    public Classes formRechClasse() {
         String sigle = getMsg("sigle : ");
         System.out.println(sigle);
-        return sigle;
+        return new Classes(sigle);
     }
     
-    public void affClasse(Classes c) {
-        affMsg("Sigle = "+c.getSigle());
-        affMsg("Orientation = "+c.getOrientation());
-        affMsg("Année = "+c.getAnnee());
-    }
+    public int menuEns(){
+       List<String> listeItems = new ArrayList<>(Arrays.asList(
+            "1.Id", 
+            "2.Nom", 
+            "3.Prénom"));
+       affListe(listeItems);
+       
+            int ch;
+        do {
+            String chs = getMsg("votre choix");
+            ch = Integer.parseInt(chs);
+            if (ch > 0 && ch <= listeItems.size()) {
+                break;
+            }
+            affMsg("choix incorrect");
+        } while (true);
+        return ch;
+   }
+    
+    public int menuClas(){
+       List<String> listeItems = new ArrayList<>(Arrays.asList(
+            "1.Sigle", 
+            "2.Orientation", 
+            "3.Année"));
+       affListe(listeItems);
+       
+            int ch;
+        do {
+            String chs = getMsg("votre choix");
+            ch = Integer.parseInt(chs);
+            if (ch > 0 && ch <= listeItems.size()) {
+                break;
+            }
+            affMsg("choix incorrect");
+        } while (true);
+        return ch;
+   }
 }

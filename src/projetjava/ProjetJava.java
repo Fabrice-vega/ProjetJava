@@ -22,6 +22,8 @@ public class ProjetJava {
         
         vue = new Vue();
         modele = new Modele();/*.getInstance();*/
+        
+        modele.populate();
         controleur = new Controleur(modele, vue);
         controleur.gestion();
     }

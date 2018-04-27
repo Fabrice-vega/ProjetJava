@@ -52,15 +52,13 @@ public class Classes {
     
     @Override
     public String toString() {
-        return "\tSigle = "+sigle+"\n\tAnnée  = "+annee+"\n\tOrientation = "+orientation+"\n";
+        return "\tSigle = "+sigle+"\n\tAnnée = "+annee+"\n\tOrientation = "+orientation+"\n";
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 59 * hash + Objects.hashCode(this.sigle);
-        hash = 59 * hash + Objects.hashCode(this.orientation);
-        hash = 59 * hash + this.annee;
         return hash;
     }
 
@@ -76,13 +74,7 @@ public class Classes {
             return false;
         }
         final Classes other = (Classes) obj;
-        if (this.annee != other.annee) {
-            return false;
-        }
         if (!Objects.equals(this.sigle, other.sigle)) {
-            return false;
-        }
-        if (!Objects.equals(this.orientation, other.orientation)) {
             return false;
         }
         return true;

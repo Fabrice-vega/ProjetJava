@@ -43,10 +43,10 @@ public class Controleur {
                     //attribution();
                     break;
                 case 4:
-                    affRechEnseignant();
+                    rechEnseignant();
                     break;
                 case 5:
-                    affRechClasse();
+                    rechClasse();
                     break;
                 case 6:
                     modifEnseignant();
@@ -97,79 +97,82 @@ public class Controleur {
         v.affListe(lc);
     }
     
-    public Enseignant rechEnseignant() {
+    public void rechEnseignant() {
         Enseignant id_prof = v.formRechEns();
-        return m.getEnseignant(id_prof);
-    }
-    
-    public void affRechEnseignant() {
-        Enseignant oRech = rechEnseignant();
-        
-        if(oRech != null) {
-            v.affMsg("L'enseignant trouvé est : ");
-            v.affEnseignant(oRech);
-        } else {
-            v.affMsg("Enseignant introuvable");
-            return;
-        }
+        v.affMsg(m.getEnseignant(id_prof));
     }
     
     public void modifEnseignant() {
-        Enseignant ensRech = rechEnseignant();
+        Enseignant ensRech = v.formRechEns();
         if(ensRech == null) {
             v.affMsg("Enseignant introuvable");
             return;
         }
-        v.affEnseignant(ensRech);
+        Enseignant ensTrouv=m.getEnseignant(ensRech);
+        if(ensTrouv == null){
+            v.affMsg("Enseignant introuvable");
+            return;
+        }
+        v.affMsg(ensTrouv);
         
-        int ch = 0;
-        System.out.println("1.id\t2.nom\t3.prenom :\n");
+        int ch;
+        do {
+            ch = v.menuEns();
+        
             switch (ch) {
                 case 1:
                     String nvId = v.getMsg("Nouvel id : ");
-                    m.modifIdProf(ensRech, nvId);
+                    m.modifIdProf(ensTrouv, nvId);
                     break;
                 case 2:
                     String nvNom = v.getMsg("Nouveau nom : ");
-                    m.modifNom(ensRech, nvNom);
+                    m.modifNom(ensTrouv, nvNom);
                     break;
                 case 3:
                     String nvPrenom = v.getMsg("Nouveau prénom : ");
-                    m.modifPrenom(ensRech, nvPrenom);
+                    m.modifPrenom(ensTrouv, nvPrenom);
                     break;
                 default:
                     v.affMsg("Choix invalide");
                     return;
             }
+            } while (ch != 1 && ch != 2 && ch != 3);
     }
     
-    public Classes rechClasse() {
-        String sigle = v.formRechClasse();
-        return m.getClasse(sigle);
-    }
-    
-    public void affRechClasse() {
-        Classes oRech = rechClasse();
-        
-        if(oRech != null) {
-            v.affMsg("La classe trouvée est : ");
-            v.affClasse(oRech);
-        } else {
-            v.affMsg("Classe introuvable");
+    public void supprEnseignant() {
+        Enseignant ensRech = v.formRechEns();
+        if(ensRech == null) {
+            v.affMsg("Enseignant introuvable");
             return;
         }
+        v.affMsg(m.getEnseignant(ensRech));
+        String supp = v.getMsg("Supprimer ? OUI / NON \t");
+        if(supp.equals("OUI")) {
+            String msg = m.supprEnseignant(ensRech);
+            v.affMsg(msg);
+        } else {
+            v.affMsg("Suppression annulée");
+        }
+        
+    }
+    
+    public void rechClasse() {
+        Classes sigle = v.formRechClasse();
+        v.affMsg(m.getClasse(sigle));
     }
     
     public void modifClasse() {
-        Classes classeRech = rechClasse();
+        Classes classeRech = v.formRechClasse();
         if(classeRech == null) {
             v.affMsg("Classe introuvable");
             return;
         }
-        v.affClasse(classeRech);
+        v.affMsg(m.getClasse(classeRech));
         
-        int ch = 0;
-        System.out.println("1.sigle\t2.orientation\t3.année :\n");
+        int ch;
+        do {
+            ch = v.menuClas();
+        
             switch (ch) {
                 case 1:
                     String nvSigle = v.getMsg("Nouveau sigle : ");
@@ -187,15 +190,16 @@ public class Controleur {
                     v.affMsg("Choix invalide");
                     return;
             }
+            } while (ch != 1 && ch != 2 && ch != 3);
     }
     
     public void supprClasse() {
-        Classes classeRech = rechClasse();
+        Classes classeRech = v.formRechClasse();
         if(classeRech == null) {
             v.affMsg("Classe introuvable");
             return;
         }
-        v.affClasse(classeRech);
+        v.affMsg(m.getClasse(classeRech));
         String supp = v.getMsg("Supprimer ? OUI / NON \t");
         if(supp.equals("OUI")) {
             String msg = m.supprClasse(classeRech);
@@ -205,20 +209,5 @@ public class Controleur {
         }
     }
     
-    public void supprEnseignant() {
-        Enseignant ensRech = rechEnseignant();
-        if(ensRech == null) {
-            v.affMsg("Enseignant introuvable");
-            return;
-        }
-        v.affEnseignant(ensRech);
-        String supp = v.getMsg("Supprimer ? OUI / NON \t");
-        if(supp.equals("OUI")) {
-            String msg = m.supprEnseignant(ensRech);
-            v.affMsg(msg);
-        } else {
-            v.affMsg("Suppression annulée");
-        }
-        
-    }
+    
 }

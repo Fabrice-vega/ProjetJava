@@ -93,7 +93,7 @@ public class Modele {
     public Enseignant getEnseignant(Enseignant idRech) {
         int i = mesEnseignants.indexOf(idRech);
         if(i<0) return null;
-        else return mesEnseignants.get(i);
+        return mesEnseignants.get(i);
     }
     
     /**
@@ -101,10 +101,10 @@ public class Modele {
      * @param sigleRech objet de type Classes qui sert à trouver l'élément cherché
      * @return m'objet de type Classes
      */
-    public Classes getClasse(String sigleRech) {
+    public Classes getClasse(Classes sigleRech) {
         int i = mesClasses.indexOf(sigleRech);
         if(i < 0) return null;
-        else return mesClasses.get(i);
+        return mesClasses.get(i);
     }
     
     /**
@@ -194,4 +194,17 @@ public class Modele {
         if(ok) return "Enseignant supprimé";
         else return "Enseignant introuvable ou impossible à supprimer";
     }
+    
+    public void populate(){
+       mesEnseignants.addAll(Arrays.asList(
+               new Enseignant("FA21","Vega","Fabrice"),
+               new Enseignant("LA22","Gallet","Laura"),
+               new Enseignant("TH20","Thomas","Glibert"))
+               );
+       mesClasses.addAll(Arrays.asList(
+               new Classes("M1","Marketing",1),
+               new Classes("P3","Préscolaire",3),
+               new Classes("I2","Informatique",2))
+       );
+   }
 }

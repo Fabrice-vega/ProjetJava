@@ -70,15 +70,13 @@ public class Enseignant {
 
     @Override
     public String toString() {
-        return "\tId du professeur ="+id_prof+"\n\tNom ="+nom+"\n\tPrenom ="+prenom+"\n";
+        return "\tId du professeur = "+id_prof+"\n\tNom = "+nom+"\n\tPrenom = "+prenom+"\n";
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 71 * hash + Objects.hashCode(this.id_prof);
-        hash = 71 * hash + Objects.hashCode(this.nom);
-        hash = 71 * hash + Objects.hashCode(this.prenom);
         return hash;
     }
 
@@ -95,12 +93,6 @@ public class Enseignant {
         }
         final Enseignant other = (Enseignant) obj;
         if (!Objects.equals(this.id_prof, other.id_prof)) {
-            return false;
-        }
-        if (!Objects.equals(this.nom, other.nom)) {
-            return false;
-        }
-        if (!Objects.equals(this.prenom, other.prenom)) {
             return false;
         }
         return true;

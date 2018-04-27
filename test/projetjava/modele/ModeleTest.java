@@ -109,7 +109,7 @@ public class ModeleTest {
     @Test
     public void testGetClasse() {
         System.out.println("getClasse");
-        String sigleRech = "F23";
+        Classes sigleRech = new Classes("F23", "informatique", 2);
         Modele instance = new Modele();
         Classes expResult = new Classes("F23", "informatique", 2);
         Classes result = instance.getClasse(sigleRech);
