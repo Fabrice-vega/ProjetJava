@@ -11,12 +11,12 @@ import projetjava.modele.Modele;
  *
  * @author Fabrice
  */
-public class TestAjoutClasses extends javax.swing.JFrame {
+public class MenuPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form TestAjoutClasses
      */
-    public TestAjoutClasses() {
+    public MenuPrincipal() {
         initComponents();
         Modele m = Modele.getInstance();
         c1.setModele(m);
@@ -33,25 +33,25 @@ public class TestAjoutClasses extends javax.swing.JFrame {
 
         c1 = new projetjava.vue.graph.AjoutClasses();
         ajoutEnseignant1 = new projetjava.vue.graph.AjoutEnseignant();
+        ajoutClasses1 = new projetjava.vue.graph.AjoutClasses();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        MenuClasses = new javax.swing.JMenu();
+        menuAjouter = new javax.swing.JMenu();
         AjoutClasses = new javax.swing.JMenuItem();
-        menuEnseignants = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(450, 500));
-        getContentPane().setLayout(new java.awt.CardLayout());
+        ajoutEnseignant = new javax.swing.JMenuItem();
+        menuRechercher = new javax.swing.JMenu();
+        menuModifier = new javax.swing.JMenu();
+        menuSupprimer = new javax.swing.JMenu();
+        menuListes = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
 
         c1.setName("c1"); // NOI18N
-        getContentPane().add(c1, "c1");
-        getContentPane().add(ajoutEnseignant1, "e1");
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.CardLayout());
+        getContentPane().add(ajoutEnseignant1, "cardAjoutEnseignant");
+        getContentPane().add(ajoutClasses1, "cardAjoutClasses");
 
-        MenuClasses.setText("Classes");
+        menuAjouter.setText("Ajouter");
 
         AjoutClasses.setText("Ajouter une classe");
         AjoutClasses.addActionListener(new java.awt.event.ActionListener() {
@@ -59,22 +59,33 @@ public class TestAjoutClasses extends javax.swing.JFrame {
                 AjoutClassesActionPerformed(evt);
             }
         });
-        MenuClasses.add(AjoutClasses);
+        menuAjouter.add(AjoutClasses);
 
-        jMenuBar1.add(MenuClasses);
-
-        menuEnseignants.setText("Enseignants");
-
-        jMenuItem2.setText("Ajouter un enseignant");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        ajoutEnseignant.setText("Ajouter un enseignant");
+        ajoutEnseignant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                ajoutEnseignantActionPerformed(evt);
             }
         });
-        menuEnseignants.add(jMenuItem2);
+        menuAjouter.add(ajoutEnseignant);
 
-        jMenuBar1.add(menuEnseignants);
-        menuEnseignants.getAccessibleContext().setAccessibleName("");
+        jMenuBar1.add(menuAjouter);
+
+        menuRechercher.setText("Rechercher");
+        jMenuBar1.add(menuRechercher);
+        menuRechercher.getAccessibleContext().setAccessibleName("");
+
+        menuModifier.setText("Modifier");
+        jMenuBar1.add(menuModifier);
+
+        menuSupprimer.setText("Supprimer");
+        jMenuBar1.add(menuSupprimer);
+
+        menuListes.setText("Listes");
+        jMenuBar1.add(menuListes);
+
+        jMenu5.setText("Attribution");
+        jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
 
@@ -83,13 +94,13 @@ public class TestAjoutClasses extends javax.swing.JFrame {
 
     private void AjoutClassesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjoutClassesActionPerformed
         CardLayout cl = (CardLayout)getContentPane().getLayout();
-        cl.show(this.getContentPane(), "c1");
+        cl.show(this.getContentPane(), "cardAjoutClasses");
     }//GEN-LAST:event_AjoutClassesActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void ajoutEnseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutEnseignantActionPerformed
         CardLayout cl = (CardLayout)getContentPane().getLayout();
-        cl.show(this.getContentPane(), "e1");
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+        cl.show(this.getContentPane(), "cardAjoutEnseignant");
+    }//GEN-LAST:event_ajoutEnseignantActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,32 +119,37 @@ public class TestAjoutClasses extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TestAjoutClasses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TestAjoutClasses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TestAjoutClasses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TestAjoutClasses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TestAjoutClasses().setVisible(true);
+                new MenuPrincipal().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AjoutClasses;
-    private javax.swing.JMenu MenuClasses;
+    private projetjava.vue.graph.AjoutClasses ajoutClasses1;
+    private javax.swing.JMenuItem ajoutEnseignant;
     private projetjava.vue.graph.AjoutEnseignant ajoutEnseignant1;
     private projetjava.vue.graph.AjoutClasses c1;
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenu menuEnseignants;
+    private javax.swing.JMenu menuAjouter;
+    private javax.swing.JMenu menuListes;
+    private javax.swing.JMenu menuModifier;
+    private javax.swing.JMenu menuRechercher;
+    private javax.swing.JMenu menuSupprimer;
     // End of variables declaration//GEN-END:variables
 }

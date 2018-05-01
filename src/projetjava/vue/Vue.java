@@ -24,17 +24,12 @@ public class Vue {
     public int menu() {
         
         List<String> listeItems = new ArrayList<>(Arrays.asList(
-                "Ajouter un enseignant",
-                "Ajouter une classe",
+                "Ajouter",
+                "Rechercher",
+                "Modifier",
+                "Supprimer",
+                "Afficher",
                 "Attribution",
-                "Rechercher un enseignant",
-                "Rechercher une classe",
-                "Modifier un enseignant",
-                "Modifier une classe",
-                "Supprimer un enseignant",
-                "Supprimer une classe",
-                "Liste enseignants",
-                "Liste Classes",
                 "Fin"
         ));
         affListe(listeItems);
@@ -138,5 +133,110 @@ public class Vue {
             affMsg("choix incorrect");
         } while (true);
         return ch;
-   }
+    }
+    
+   public int menuAjouter() {
+        
+        List<String> listeItems = new ArrayList<>(Arrays.asList(
+                "Ajouter un enseignant",
+                "Ajouter une classe",
+                "Retour"
+        ));
+        affListe(listeItems);
+        
+        int choix;
+        do {
+            String chs = getMsg("Votre choix : ");
+            choix = Integer.parseInt(chs);
+            if (choix > 0 && choix <= listeItems.size()) {
+                break;
+            }
+            affMsg("Choix incorrect");
+        }while(true);
+        return choix;
+    }
+   
+   public int menuRecherche() {
+        
+        List<String> listeItems = new ArrayList<>(Arrays.asList(
+                "Rechercher un enseignant",
+                "Rechercher une classe",
+                "Retour"
+        ));
+        affListe(listeItems);
+        
+        int choix;
+        do {
+            String chs = getMsg("Votre choix : ");
+            choix = Integer.parseInt(chs);
+            if (choix > 0 && choix <= listeItems.size()) {
+                break;
+            }
+            affMsg("Choix incorrect");
+        }while(true);
+        return choix;
+    }
+   
+   public int menuModifier() {
+        
+        List<String> listeItems = new ArrayList<>(Arrays.asList(
+                "Modifier un enseignant",
+                "Modifier une classe",
+                "Retour"
+        ));
+        affListe(listeItems);
+        
+        int choix;
+        do {
+            String chs = getMsg("Votre choix : ");
+            choix = Integer.parseInt(chs);
+            if (choix > 0 && choix <= listeItems.size()) {
+                break;
+            }
+            affMsg("Choix incorrect");
+        }while(true);
+        return choix;
+    }
+   
+   public int menuSupprimer() {
+        
+        List<String> listeItems = new ArrayList<>(Arrays.asList(
+                "Supprimer un enseignant",
+                "Supprimer une classe",
+                "Retour"
+        ));
+        affListe(listeItems);
+        
+        int choix;
+        do {
+            String chs = getMsg("Votre choix : ");
+            choix = Integer.parseInt(chs);
+            if (choix > 0 && choix <= listeItems.size()) {
+                break;
+            }
+            affMsg("Choix incorrect");
+        }while(true);
+        return choix;
+    }
+   
+   public int menuAfficher() {
+        
+        List<String> listeItems = new ArrayList<>(Arrays.asList(
+                "Afficher un enseignant",
+                "Afficher une classe",
+                "Retour"
+        ));
+        affListe(listeItems);
+        
+        int choix;
+        do {
+            String chs = getMsg("Votre choix : ");
+            choix = Integer.parseInt(chs);
+            if (choix > 0 && choix <= listeItems.size()) {
+                break;
+            }
+            affMsg("Choix incorrect");
+        }while(true);
+        return choix;
+    }
 }

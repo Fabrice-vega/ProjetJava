@@ -33,46 +33,116 @@ public class Controleur {
             choix = v.menu();
             
             switch(choix) {
-                case 1:
-                    ajoutEnseignant();
+                case 1:          //menu ajouter
+                    choix = v.menuAjouter();
+                    do {
+                        switch(choix) {
+                            case 1:
+                                ajoutEnseignant();
+                                break;
+                            case 2:
+                                ajoutClasses();
+                                break;
+                            case 3:
+                                v.affMsg("\tRetour au menu précédant.");
+                                break;
+                            default:
+                                v.affMsg("choix incorrect");
+                        }
+                        break;
+                    }while(choix != 3);
                     break;
-                case 2:
-                    ajoutClasses();
+                    
+                case 2:             //menu rechercher
+                    choix = v.menuRecherche();
+                    do {
+                        switch(choix) {
+                            case 1:
+                                rechEnseignant();
+                                break;
+                            case 2:
+                                rechClasse();
+                                break;
+                            case 3:
+                                v.affMsg("\tRetour au menu précédant.");
+                                break;
+                            default:
+                                v.affMsg("choix incorrect");
+                        }
+                        break;
+                    }while(choix != 3);
                     break;
-                case 3:
+                    
+                case 3:             //menu modifier
+                    choix = v.menuModifier();
+                    do {
+                        switch(choix) {
+                            case 1:
+                                modifEnseignant();
+                                break;
+                            case 2:
+                                modifClasse();
+                                break;
+                            case 3:
+                                v.affMsg("\tRetour au menu précédant.");
+                                break;
+                            default:
+                                v.affMsg("choix incorrect");
+                        }
+                        break;
+                    }while(choix != 3);
+                    break;
+               
+                case 4:             //menu supprimer
+                    choix = v.menuSupprimer();
+                    do {
+                        switch(choix) {
+                            case 1:
+                                supprEnseignant();
+                                break;
+                            case 2:
+                                supprClasse();
+                                break;
+                            case 3:
+                                v.affMsg("\tRetour au menu précédant.");
+                                break;
+                            default:
+                                v.affMsg("choix incorrect");
+                        }
+                        break;
+                    }while(choix != 3);
+                    break;
+                    
+                case 5:             //menu afficher
+                    choix = v.menuAfficher();
+                    do {
+                        switch(choix) {
+                            case 1:
+                                listeEnseignants();
+                                break;
+                            case 2:
+                                listeClasses();
+                                break;
+                            case 3:
+                                v.affMsg("\tRetour au menu précédant.");
+                                break;
+                            default:
+                                v.affMsg("choix incorrect");
+                        }
+                        break;
+                    }while(choix != 3);
+                    break;
+                    
+                case 6:
                     //attribution();
                     break;
-                case 4:
-                    rechEnseignant();
-                    break;
-                case 5:
-                    rechClasse();
-                    break;
-                case 6:
-                    modifEnseignant();
-                    break;
                 case 7:
-                   modifClasse();
-                    break;
-                case 8:
-                    supprEnseignant();
-                    break;
-                case 9:
-                    supprClasse();
-                    break;
-                case 10:
-                    listeEnseignants();
-                    break;
-                case 11:
-                    listeClasses();
-                    break;
-                case 12:
                     v.affMsg("à la prochaine !");
                     break;
                 default:
                     v.affMsg("choix incorrect");
             }
-        }while(choix != 12);
+        }while(choix != 7);
     }
     
     public void ajoutEnseignant() {
