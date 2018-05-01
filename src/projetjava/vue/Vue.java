@@ -104,9 +104,9 @@ public class Vue {
     
     public int menuEns(){
        List<String> listeItems = new ArrayList<>(Arrays.asList(
-            "1.Id", 
-            "2.Nom", 
-            "3.Prénom"));
+            "Id", 
+            "Nom", 
+            "Prénom"));
        affListe(listeItems);
        
             int ch;
@@ -123,9 +123,9 @@ public class Vue {
     
     public int menuClas(){
        List<String> listeItems = new ArrayList<>(Arrays.asList(
-            "1.Sigle", 
-            "2.Orientation", 
-            "3.Année"));
+            "Sigle", 
+            "Orientation", 
+            "Année"));
        affListe(listeItems);
        
             int ch;

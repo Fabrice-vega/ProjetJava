@@ -111,7 +111,7 @@ public class AjoutEnseignant extends javax.swing.JPanel {
         String prenom=tfPrenom.getText();
         if (prenom.trim().equals("")) {
             erreur =true;
-            tfNom.setBackground(Color.red);
+            tfPrenom.setBackground(Color.red);
         }
         
        if(!erreur) {
@@ -142,3 +142,6 @@ public class AjoutEnseignant extends javax.swing.JPanel {
     private javax.swing.JTextField tfPrenom;
     // End of variables declaration//GEN-END:variables
 }
+
+
+

@@ -27,7 +27,7 @@ public class Modele {
      */
     protected List<Classes> mesClasses = new ArrayList<>();
     
-    //private static Modele instance = null;
+    private static Modele instance = null;
 
     /**
      * Constructeur par défaut
@@ -36,10 +36,10 @@ public class Modele {
         
     }
     
-    /*public static Modele getInstance() {
+    public static Modele getInstance() {
         if(instance == null) return instance = new Modele();
         else return instance;
-    }*/
+    }
 
     /**
      * Méthode qui ajoute un enseignant
@@ -199,11 +199,13 @@ public class Modele {
        mesEnseignants.addAll(Arrays.asList(
                new Enseignant("FA21","Vega","Fabrice"),
                new Enseignant("LA22","Gallet","Laura"),
-               new Enseignant("TH20","Thomas","Glibert"))
+               new Enseignant("TH20","Thomas","Glibert"),
+               new Enseignant("GD20","Gabriel","Dufrasne"))
                );
        mesClasses.addAll(Arrays.asList(
                new Classes("M1","Marketing",1),
                new Classes("P3","Préscolaire",3),
+               new Classes("D1","Diététique",1),
                new Classes("I2","Informatique",2))
        );
    }
