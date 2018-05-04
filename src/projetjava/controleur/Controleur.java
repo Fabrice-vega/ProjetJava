@@ -124,17 +124,19 @@ public class Controleur {
                                 listeClasses();
                                 break;
                             case 3:
+                                listeAttributions();
+                                break;
+                            case 4:
                                 v.affMsg("\tRetour au menu précédant.");
                                 break;
                             default:
                                 v.affMsg("choix incorrect");
                         }
                         break;
-                    }while(choix != 3);
+                    }while(choix != 4);
                     break;
-                    
                 case 6:
-                    //attribution();
+                    gestionAttribution();
                     break;
                 case 7:
                     v.affMsg("à la prochaine !");
@@ -165,6 +167,11 @@ public class Controleur {
     public void listeClasses() {
         List<Classes> lc = m.toutesClasses();
         v.affListe(lc);
+    }
+    
+    public void listeAttributions() {
+        List<Attribution> la = m.toutesAttribution();
+        v.affListe(la);
     }
     
     public void rechEnseignant() {
@@ -279,5 +286,49 @@ public class Controleur {
         }
     }
     
+    private void gestionAttribution() {
+
+        try {
+
+            List<Enseignant> le = m.tousEnseignant() ;
+            List<Classes> lc = m.toutesClasses();
+            List<Attribution> la = m.toutesAttribution();
+
+            int choix = Integer.parseInt(v.getMsg(""
+                    + "1. Ajouter une attribution"
+                    + "      2. Modifier une attribution "
+                    + "             3. Supprimer une attribution"));
+
+            if (choix == 1) {
+                v.affMsg(" --- Ajout d'une attribution ---");
+                Attribution a = v.newAttribution(m.toutesClasses(), m.tousEnseignant(), m.toutesAttribution());
+                String msg = m.ajoutAttribution(a);
+                v.affMsg(msg);
+
+            }
+            /*if (choix == 2) {
+                pv.affichageMessage(" --- Modification de l'attribution ---");
+                pv.affichageMessage(le);
+                pv.affichageMessage(lc);
+                Attribution aRech = pv.rechAttribution();
+                Attribution att = cm.getAttribution(aRech);
+                //   pv.affichageMessage(aRech);
+                Attribution nvAtt = pv.newAttribution(cm.toutesClasses(), cm.tousEns(), cm.toutesLesAttributions());
+                pv.affichageMessage(cm.modifyA(nvAtt, att));
+
+            }
+            if (choix == 3) {
+                pv.affichageMessage(" --- Suppression de l'attribution ---");
+                pv.affichageMessage(le);
+                pv.affichageMessage(lc);
+                Attribution aRech = pv.rechAttribution();
+                Attribution att = cm.getAttribution(aRech);
+                pv.affichageMessage(cm.getAttribution(att));
+                v.affMsg(cm.deleteA(att));
+            }                                                       */
+        } catch (NumberFormatException e) {
+            v.affMsg("Entrez un nombre");
+        }
+}
     
 }

@@ -27,6 +27,8 @@ public class Modele {
      */
     protected List<Classes> mesClasses = new ArrayList<>();
     
+    protected List<Attribution> mesAttributions = new ArrayList<>();
+    
     private static Modele instance = null;
 
     /**
@@ -67,6 +69,13 @@ public class Modele {
         return "ajout classe effectuée";
     }
     
+    public String ajoutAttribution(Attribution a) {
+        if (a == null) return "Attribution inexistante";
+        if (mesAttributions.contains(a)) return "Attribution déjà créée";
+        mesAttributions.add(a);
+        return "Ajout de l'attribution effectuée";
+}
+    
     /**
      * Méthode qui compare les enseignants
      * @return la liste des enseignants
@@ -83,6 +92,10 @@ public class Modele {
     public List<Classes> toutesClasses() {
         mesClasses.sort(new CompareClasses());
         return mesClasses;
+    }
+    
+    public List<Attribution> toutesAttribution() {
+        return mesAttributions;
     }
     
     /**
@@ -106,6 +119,12 @@ public class Modele {
         if(i < 0) return null;
         return mesClasses.get(i);
     }
+    
+    public Attribution getAttribution(Attribution aRech) {
+        int i = mesAttributions.indexOf(aRech);
+        if (i < 0) return null;
+        return mesAttributions.get(i);
+        }
     
     /**
      * Méthode qui modifie le nom
@@ -194,6 +213,29 @@ public class Modele {
         if(ok) return "Enseignant supprimé";
         else return "Enseignant introuvable ou impossible à supprimer";
     }
+    
+    /*
+    public String deleteA(Attribution aDel) {
+
+        int i = mesAttributions.indexOf(aDel);
+        if (i < 0) {
+            return "Attribution à supprimer introuvable";
+        } else {
+            Enseignant e = new Enseignant();
+            e = mesAttributions.get(i).getEnseignant();
+
+            if (e.getTitulaire() != null) {
+                e.setTitulaire(null);
+                e.getTitulaire();
+            }
+            if (e.getRemplacant() != null) {
+                e.setRemplacant(null);
+                e.getRemplacant();
+            }
+            mesAttributions.remove(i);
+        }
+        return "Suppression effectuée";
+}*/
     
     /**
      * Méthode qui remplit les listes
