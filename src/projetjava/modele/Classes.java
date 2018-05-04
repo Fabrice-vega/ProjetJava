@@ -16,6 +16,12 @@ public class Classes {
         
     }
     
+    private Classes(ClassesBuilder pb) {
+        this.sigle = pb.sigle;
+        this.orientation = pb.orientation;
+        this.annee = pb.annee;
+    }
+    
     public Classes( String sigle ) { //constructeur de recherche
         this.sigle = sigle;
     }
@@ -80,6 +86,34 @@ public class Classes {
         return true;
     }
     
-    
-
+    public static class ClassesBuilder {
+        
+        private String sigle;
+        private String orientation;
+        private int annee;
+        
+        public ClassesBuilder() {
+        }
+        
+        public ClassesBuilder setSigle(String sigle) {
+            this.sigle = sigle;
+            return this;
+        }
+        
+        public ClassesBuilder setOrientation(String orientation) {
+            this.orientation = orientation;
+            return this;
+        }
+        
+        public ClassesBuilder setAnnee(int annee) {
+            this.annee = annee;
+            return this;
+        }
+        
+        public Classes build() throws Exception {
+            if (sigle == null) throw new Exception ("Sigle manquant");
+            if(sigle.trim().equals("")) throw new Exception ("Sigle manquant");
+            return new Classes(this);
+        }
+    }
 }

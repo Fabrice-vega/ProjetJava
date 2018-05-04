@@ -195,6 +195,9 @@ public class Modele {
         else return "Enseignant introuvable ou impossible à supprimer";
     }
     
+    /**
+     * Méthode qui remplit les listes
+     */
     public void populate(){
        mesEnseignants.addAll(Arrays.asList(
                new Enseignant("FA21","Vega","Fabrice"),

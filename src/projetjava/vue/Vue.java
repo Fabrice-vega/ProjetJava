@@ -80,6 +80,19 @@ public class Vue {
         String orientation = getMsg("Orientation de la classe ? ");
         String an = getMsg("L'année de la classe ? ");
         int annee = Integer.parseInt(an);
+        
+        
+        try {
+            Classes cl = new Classes.ClassesBuilder().
+                setSigle(sigle)
+                    .setOrientation(orientation)
+                    .setAnnee(annee)
+                    .build();
+        } catch (Exception e) {
+            System.out.println("Erreur de création"+e);
+        }
+        
+        
         Classes c = new Classes(sigle, orientation, annee);
         return c;
     }
