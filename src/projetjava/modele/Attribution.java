@@ -62,6 +62,6 @@ public class Attribution {
 
     @Override
     public String toString() {
-        return "Attribution{" + "classes=" + classes + ", enseignant=" + enseignant + '}';
+        return "\tAttribution\n" + "Classes : \n" + classes + "Enseignant :\n" + enseignant;
     }
 }

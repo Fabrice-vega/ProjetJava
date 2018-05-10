@@ -70,7 +70,6 @@ public class Modele {
     }
     
     public String ajoutAttribution(Attribution a) {
-        if (a == null) return "Attribution inexistante";
         if (mesAttributions.contains(a)) return "Attribution déjà créée";
         mesAttributions.add(a);
         return "Ajout de l'attribution effectuée";
@@ -214,10 +213,10 @@ public class Modele {
         else return "Enseignant introuvable ou impossible à supprimer";
     }
     
-    /*
-    public String deleteA(Attribution aDel) {
+    
+    public String supprAttribution(Attribution aSup) {
 
-        int i = mesAttributions.indexOf(aDel);
+        int i = mesAttributions.indexOf(aSup);
         if (i < 0) {
             return "Attribution à supprimer introuvable";
         } else {
@@ -235,7 +234,7 @@ public class Modele {
             mesAttributions.remove(i);
         }
         return "Suppression effectuée";
-}*/
+}
     
     /**
      * Méthode qui remplit les listes
@@ -246,7 +245,7 @@ public class Modele {
                new Enseignant("LA22","Gallet","Laura"),
                new Enseignant("TH20","Thomas","Glibert"),
                new Enseignant("GD20","Gabriel","Dufrasne"))
-               );
+       );
        mesClasses.addAll(Arrays.asList(
                new Classes("M1","Marketing",1),
                new Classes("P3","Préscolaire",3),

@@ -287,17 +287,19 @@ public class Controleur {
     }
     
     private void gestionAttribution() {
-
-        try {
+        
+        int choix = 0;
+        
+        do {
 
             List<Enseignant> le = m.tousEnseignant() ;
             List<Classes> lc = m.toutesClasses();
             List<Attribution> la = m.toutesAttribution();
 
-            int choix = Integer.parseInt(v.getMsg(""
+            choix = Integer.parseInt(v.getMsg(""
                     + "1. Ajouter une attribution"
-                    + "      2. Modifier une attribution "
-                    + "             3. Supprimer une attribution"));
+                    + "\n2. Supprimer une attribution"
+                    + "\n3. Retour "));
 
             if (choix == 1) {
                 v.affMsg(" --- Ajout d'une attribution ---");
@@ -306,29 +308,20 @@ public class Controleur {
                 v.affMsg(msg);
 
             }
-            /*if (choix == 2) {
-                pv.affichageMessage(" --- Modification de l'attribution ---");
-                pv.affichageMessage(le);
-                pv.affichageMessage(lc);
-                Attribution aRech = pv.rechAttribution();
-                Attribution att = cm.getAttribution(aRech);
-                //   pv.affichageMessage(aRech);
-                Attribution nvAtt = pv.newAttribution(cm.toutesClasses(), cm.tousEns(), cm.toutesLesAttributions());
-                pv.affichageMessage(cm.modifyA(nvAtt, att));
-
-            }
+        
+            if (choix == 2) {
+                v.affMsg(" --- Suppression de l'attribution ---");
+                v.affMsg(la);
+                Attribution aRech = v.rechAttr();
+                Attribution att = m.getAttribution(aRech);
+                v.affMsg(m.getAttribution(att));
+                v.affMsg(m.supprAttribution(att));
+            }                                                     
             if (choix == 3) {
-                pv.affichageMessage(" --- Suppression de l'attribution ---");
-                pv.affichageMessage(le);
-                pv.affichageMessage(lc);
-                Attribution aRech = pv.rechAttribution();
-                Attribution att = cm.getAttribution(aRech);
-                pv.affichageMessage(cm.getAttribution(att));
-                v.affMsg(cm.deleteA(att));
-            }                                                       */
-        } catch (NumberFormatException e) {
-            v.affMsg("Entrez un nombre");
-        }
+                // RETOUR
+            }
+        }while(choix != 1 && choix != 2 && choix != 3);
+            
 }
     
 }

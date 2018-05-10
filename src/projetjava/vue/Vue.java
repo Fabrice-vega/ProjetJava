@@ -255,57 +255,70 @@ public class Vue {
         return choix;
     }
    
-   public Attribution newAttribution(List<Classes> toutesClasses, List<Enseignant> tousEns, List<Attribution> toutesAttribution) {
+   
+   
+   public Attribution newAttribution(List<Classes> toutesClasses, List<Enseignant> tousEnseignant, List<Attribution> toutesAttribution) {
 
-        affListe(toutesClasses);
-        String ch1 = getMsg("Choisissez la classe : ");
-
+        int tc = toutesClasses.size();
+        int te = tousEnseignant.size();
+        
         int ens = 0; //choix de l'enseignant 
         int cl = 0; //choix de la classe 
         int att = 0; //choix de l'attribution
 
-        int chx = Integer.parseInt(ch1);
-        if (chx > 0 && chx <= toutesClasses.size()) {
-            cl = chx - 1;
-        } else {
-
-            affMsg("Entrez un nombre entier : ");
-
-        }
-
-        affListe(tousEns);
-        String ch2 = getMsg("Choisissez un enseignant : ");
-
-        chx = Integer.parseInt(ch2);
-        if (chx > 0 && chx <= tousEns.size()) {
-            ens = chx - 1;
-        } else {
-
-            affMsg("Entrez un entier : ");
-
-        }
-        ch2 = getMsg("Entrez son statut : \n -- 1 pour les titulaires"
+        
+        //affiche la liste des classes
+            affListe(toutesClasses);
+            String ch1 = getMsg("Choisissez une classe : ");
+            int chx = Integer.parseInt(ch1);
+        do {
+            if (chx > 0 && chx <= tc) {
+                cl = chx - 1;
+            } else {
+                affListe(toutesClasses);
+                ch1 = getMsg("Entrez un nombre entier : ");
+                chx = Integer.parseInt(ch1);
+            }
+        }while(chx < 0 || chx > tc);
+        
+        //affiche la liste des enseignants
+            affListe(tousEnseignant);
+            String ch2 = getMsg("Choisissez un enseignant : ");
+            chx = Integer.parseInt(ch2);
+        do {
+            if (chx > 0 && chx <= te) {
+                ens = chx - 1;
+            } else {
+                affListe(tousEnseignant);
+                ch2 = getMsg("Entrez un nombre entier : ");
+                chx = Integer.parseInt(ch2);
+            }   
+        }while(chx < 0 ||  chx > te);
+        
+        //choix titulaire / remplaçants
+        do {
+            ch2 = getMsg("Entrez son statut : \n -- 1 pour les titulaires"
                 + " \n -- 2 pour les remplacants");
-
-        chx = Integer.parseInt(ch2);
-        if (chx >= 1 && chx <= 2) {
-            att = chx;
-        } else {
-
-            affMsg("Choisissez l'une des 2 propositions ");
-
-        }
+            chx = Integer.parseInt(ch2);
+            if (chx >= 1 && chx <= 2) {
+                att = chx;
+            } 
+            else {
+                affMsg("Choisissez l'une des 2 propositions ");
+            }
+        }while(chx !=1 && chx != 2);
+        
 
         Classes c = toutesClasses.get(cl);
-        Enseignant e = tousEns.get(ens);
+        Enseignant e = tousEnseignant.get(ens);
 
         if (e.getRemplacant() != null || e.getTitulaire() != null) {
             affMsg("Il y a déjà une attribution pour cet enseignant : ");
             return null;
 
         } else {
+          
             if (att == 1) {
-
                 for (Attribution a : toutesAttribution) {
                     Enseignant eCher = a.getEnseignant();
                     if (eCher.getTitulaire() == c) {
@@ -315,16 +328,45 @@ public class Vue {
                     e.setTitulaire(c);
                     e.setRemplacant(null);
                 }
-                if (att == 2) {
-                    e.setRemplacant(c);
-                    e.setTitulaire(null);
-                }
             }
-
+            if (att == 2) {
+                e.setRemplacant(c);
+                e.setTitulaire(null);
+            }
+                
             Attribution a = new Attribution(c, e);
 
             return a;
 
         }
 }
+   public Attribution rechAttr() {
+       Classes rechc = null;
+       Enseignant reche = null;
+       boolean ok;
+       do {
+           String id_prof = getMsg("Id du professeur recherché : ");
+           if(id_prof.trim().equals("")) {
+               affMsg("Entrez le correctement ");
+               ok = false;
+           } else {
+               ok = true;
+               reche = new Enseignant(id_prof);
+           }
+       }while(!ok);
+       
+       do {
+            String sigle = getMsg("Sigle de la classe recherchée : ");
+            if(sigle.trim().equals("")) {
+                affMsg("Entrez le correctement ");
+                ok = false;
+            } else {
+                ok = true;
+                rechc = new Classes(sigle);
+            }
+       }while(!ok);
+       
+       Attribution recha = new Attribution(rechc, reche);
+       return recha;
+   }
 }
